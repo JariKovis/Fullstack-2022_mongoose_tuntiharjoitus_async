@@ -39,7 +39,7 @@ async function main() {
     /* Luodaan uusi kitten olio ja tulostetaan sen nimi konsoliin */
     const silence = new Kitten({ name: 'Silence' });
     console.log(silence.name); // 'Silence'
-
+    await silence.save()
     const fluffy = new Kitten({ name: 'Fluffy' });
     fluffy.speak(); // "Meow name is Fluffy"
     await fluffy.save()
