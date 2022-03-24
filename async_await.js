@@ -11,7 +11,7 @@ main().catch(err => console.log(err));
 
 /* Luodaan async funktio main()*/
 async function main() {
-    const aika = 1000;
+    const aika = 50;
     let promise = new Promise((resolve, reject) => {
         setTimeout(() => resolve("done!"), aika)
     });

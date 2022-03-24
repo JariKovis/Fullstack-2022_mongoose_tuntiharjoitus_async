@@ -15,20 +15,21 @@ main().catch(err => console.log(err));
 async function main() {
     await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log("Yhteys on muodostettu!");
+
+
+    /* Määritellään kittySchema-niminen Schema, huomaa myös kentän validaattorit*/
+    const kittySchema = new mongoose.Schema({
+        name: {
+            type: String,
+            required: true,
+            minlength: 3
+        }
+    });
+
+    /* The next step is compiling kittySchema- schema into a Model. */
+    const Kitten = mongoose.model('Kitten', kittySchema);
+
+    /* Luodaan uusi kitten olio ja tulostetaan sen nimi konsoliin */
+    const silence = new Kitten({ name: 'Silence' });
+    console.log(silence.name); // 'Silence'
 }
-
-/* Määritellään kittySchema-niminen Schema, huomaa myös kentän validaattorit*/
-const kittySchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        minlength: 3
-    }
-});
-
-/* The next step is compiling kittySchema- schema into a Model. */
-const Kitten = mongoose.model('Kitten', kittySchema);
-
-/* Luodaan uusi kitten olio ja tulostetaan sen nimi konsoliin */
-const silence = new Kitten({ name: 'Silence' });
-console.log(silence.name); // 'Silence'

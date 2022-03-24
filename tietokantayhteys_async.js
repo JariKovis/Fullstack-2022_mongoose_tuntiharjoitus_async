@@ -12,6 +12,6 @@ main().catch(err => console.log(err));
 /* Luodaan yhteys tietokantaan */
 async function main() {
     await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    console.log("Yhteys on muodostettu!");
+    console.log("Yhteys tietokantaan on muodostettu!");
 
 };
